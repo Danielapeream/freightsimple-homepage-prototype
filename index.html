@@ -228,7 +228,7 @@
      HERO — the star of the page
   ═══════════════════════════════════════════════════════ */
   .hero {
-    padding: 100px 32px 120px;
+    padding: 100px 0 0 0;
     position: relative;
     overflow: hidden;
     transition: background 0.4s, color 0.4s;
@@ -239,9 +239,7 @@
   .hero-inner {
     max-width: 1280px;
     margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 72px;
+    padding: 0 32px;
     position: relative;
     z-index: 2;
   }
@@ -443,24 +441,16 @@
   .anim-stage {
     aspect-ratio: 16 / 9;
     width: 100%;
-    border-radius: 24px;
+    margin-top: 72px;
     position: relative;
     overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 32px;
     background: var(--white);
-    border: 2px solid var(--blue);
-    box-shadow: 12px 12px 0 var(--gold);
-    transition: transform 0.3s;
+    transition: background 0.4s;
   }
-  .anim-stage:hover { transform: translate(-2px, -2px); box-shadow: 14px 14px 0 var(--gold); }
-  body.hero-dark .anim-stage {
-    background: #fff;
-    border-color: var(--gold);
-    box-shadow: 12px 12px 0 var(--blue);
-  }
+  /* anim-stage has no card treatment at full width; no hover lift, no dark-mode border variant */
 
   .stage-badge {
     position: absolute;
@@ -1905,8 +1895,8 @@
      RESPONSIVE
   ═══════════════════════════════════════════════════════ */
   @media (max-width: 960px) {
-    .hero-inner { gap: 48px; }
-    .anim-stage { aspect-ratio: 4 / 3; max-width: 100%; }
+    .hero-inner { padding: 0 20px; }
+    .anim-stage { aspect-ratio: 4 / 3; margin-top: 48px; }
     .pain-grid, .tiers-grid, .test-grid { grid-template-columns: 1fr; gap: 16px; }
     .how-grid { grid-template-columns: repeat(2, 1fr); }
     .how-grid::before { display: none; }
@@ -1916,7 +1906,7 @@
     nav { padding: 14px 20px; flex-wrap: wrap; }
     .nav-links { gap: 18px; }
     section { padding: 80px 20px; }
-    .hero { padding: 60px 20px 80px; }
+    .hero { padding: 60px 0 0 0; }
     .partners-inner { flex-direction: column; text-align: center; }
     .tier-card.featured { transform: none; }
     .tier-card.featured:hover { transform: translate(-3px, -3px); }
@@ -1989,8 +1979,9 @@
         <span>Trusted by 1,000+ manufacturing &amp; distribution companies</span>
       </div>
     </div>
+  </div>
 
-    <div class="anim-stage">
+  <div class="anim-stage">
       <div class="stage-badge">
         <span class="stage-dot-live"></span>
         10s animation
@@ -2033,7 +2024,6 @@
       </div>
       <div class="progress-bar"></div>
     </div>
-  </div>
 </section>
 
 <!-- TRUST BAR -->
